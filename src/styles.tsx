@@ -1,9 +1,22 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
+export const StyledLink = styled(Link)`
+    font-size: 0.75em;
+    display: block;
     text-align: left;
 `;
 
-export const ListItem = styled.div`
-    font-size: 1em;
+export const Paragraph = styled.p`
+    margin: 16px 20%;
+    font-size: 0.8em;
+`;
+
+export const Wrapper = styled.div`
+    width: 100%;
+`;
+
+export const NavigationWrapper = styled.div`
+    width: 150px;
+    margin: 0 auto;
 `;

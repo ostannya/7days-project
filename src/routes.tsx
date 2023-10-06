@@ -1,69 +1,51 @@
-import { Outlet, Link } from 'react-router-dom';
-import { Container, ListItem } from './styles';
+import { Outlet } from 'react-router-dom';
+import { StyledLink, Wrapper, NavigationWrapper } from './styles';
 
 export function Layout() {
     return (
-        <div>
-            {/* A "layout route" is a good place to put markup you want to
-            share across all the pages on your site, like navigation. */}
-            <nav>
-                <Container>
-                    <ListItem>
-                        <Link to="/first-project">First project</Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link to="/second-project">Second project</Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link to="/third-project">Third project</Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link to="/nothing-here">Nothing Here</Link>
-                    </ListItem>
-                </Container>
-            </nav>
+        <Wrapper>
+            <NavigationWrapper>
+                <nav>
+                    <StyledLink to="/first-project">First project</StyledLink>
 
-            <hr />
+                    <StyledLink to="/second-project">Second project</StyledLink>
 
-            {/* An <Outlet> renders whatever child route is currently active,
+                    <StyledLink to="/third-project">Third project</StyledLink>
+
+                    <StyledLink to="/nothing-here">Nothing Here</StyledLink>
+                </nav>
+            </NavigationWrapper>
+
+            <div>
+                {/* An <Outlet> renders whatever child route is currently active,
             so you can think about this <Outlet> as a placeholder for
             the child routes we defined above. */}
-            <Outlet />
-        </div>
+                <Outlet />
+            </div>
+        </Wrapper>
     );
 }
 
 export function FirstProject() {
-    return (
-        <div>
-            <h2>First Project</h2>
-        </div>
-    );
+    return <h3>First Project</h3>;
 }
 
 export function SecondProject() {
-    return (
-        <div>
-            <h2>Second Project</h2>
-        </div>
-    );
+    return <h3>Second Project</h3>;
 }
 
 export function ThirdProject() {
-    return (
-        <div>
-            <h2>Third Project</h2>
-        </div>
-    );
+    return <h3>Third Project</h3>;
 }
 
 export function NoMatch() {
     return (
         <div>
-            <h2>Nothing to see here!</h2>
-            <p>
-                <Link to="/">Go to the home page</Link>
-            </p>
+            <h3>Nothing to see here!</h3>
+
+            <a style={{ fontSize: '0.75em' }} href="/">
+                Go to the home page
+            </a>
         </div>
     );
 }
