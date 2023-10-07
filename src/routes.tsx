@@ -7,11 +7,8 @@ export function Layout() {
             <NavigationWrapper>
                 <nav>
                     <StyledLink to="/first-project">First project</StyledLink>
-
                     <StyledLink to="/second-project">Second project</StyledLink>
-
                     <StyledLink to="/third-project">Third project</StyledLink>
-
                     <StyledLink to="/nothing-here">Nothing Here</StyledLink>
                 </nav>
             </NavigationWrapper>
@@ -27,22 +24,21 @@ export function Layout() {
 }
 
 export function FirstProject() {
-    return <h3>First Project</h3>;
+    return <h4>First Project</h4>;
 }
 
 export function SecondProject() {
-    return <h3>Second Project</h3>;
+    return <h4>Second Project</h4>;
 }
 
 export function ThirdProject() {
-    return <h3>Third Project</h3>;
+    return <h4>Third Project</h4>;
 }
 
 export function NoMatch() {
     return (
         <div>
-            <h3>Nothing to see here!</h3>
-
+            <h4>Nothing to see here!</h4>
             <a style={{ fontSize: '0.75em' }} href="/">
                 Go to the home page
             </a>

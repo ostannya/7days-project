@@ -17,6 +17,6 @@ export const Wrapper = styled.div`
 `;
 
 export const NavigationWrapper = styled.div`
-    width: 150px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 `;
