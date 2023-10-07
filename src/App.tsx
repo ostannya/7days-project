@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import { SvgWithHover, SvgIcon } from './svgIcon';
 import { Layout, FirstProject, SecondProject, ThirdProject, NoMatch } from './routes';
-import logo from './logo.svg';
 import './App.css';
 import { Paragraph } from './styles';
 
@@ -9,7 +9,9 @@ function App() {
         <div className="App">
             <header></header>
             <main className="App-main">
-                <img src={logo} className="App-logo" alt="logo" />
+                <SvgWithHover>
+                    {hovered => <SvgIcon fill={hovered ? '#ecff41' : 'currentColor'} />}
+                </SvgWithHover>
                 <Paragraph>
                     Here comes some inspirational text about the projects I've created in one week
                     each. Maybe even a link to the source code. It goes for two or three lines

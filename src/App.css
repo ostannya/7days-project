@@ -2,11 +2,6 @@
     text-align: center;
 }
 
-.App-logo {
-    height: 7vmin;
-    pointer-events: none;
-}
-
 .App-main {
     height: 100%;
     display: flex;
