@@ -7,10 +7,8 @@ A repo for the projects I create in 7 days
 -   [x] Add routing
 -   [x] Basic UI
 -   [x] Highlight the bulb on hover
-
-[ ] Create a list of the next projects (at least 3) (pokemon library, tik tack toe game, fire poker, random wheel, writing tests)
-
-[ ] Rethink the design
+-   [x] Create a list of the next projects (at least 3) (pokemon library, tik tack toe game, fire poker, random wheel, writing tests)  
+         [ ] Add Left panel with links to the socials
 
 ## Inspiration
 

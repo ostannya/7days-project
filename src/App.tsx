@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { SvgWithHover, SvgIcon } from './svgIcon';
-import { Layout, FirstProject, SecondProject, ThirdProject, NoMatch } from './routes';
+import { Layout, NoMatch } from './routes';
 import './App.css';
 import { Paragraph } from './styles';
+import { PokeTacToe } from './projects/poke-tac-toe';
+import { ToAnyCase } from './projects/to-any-case';
+import { PokeCards } from './projects/poke-cards';
 
 function App() {
     return (
@@ -18,9 +21,9 @@ function App() {
                 </Paragraph>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route index path="first-project" element={<FirstProject />} />
-                        <Route path="second-project" element={<SecondProject />} />
-                        <Route path="third-project" element={<ThirdProject />} />
+                        <Route index path="poke-tac-toe" element={<PokeTacToe />} />
+                        <Route path="to-any-case" element={<ToAnyCase />} />
+                        <Route path="poke-cards" element={<PokeCards />} />
 
                         {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
