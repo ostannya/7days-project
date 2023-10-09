@@ -6,12 +6,14 @@ import { Paragraph } from './styles';
 import { PokeTacToe } from './projects/poke-tac-toe';
 import { ToAnyCase } from './projects/to-any-case';
 import { PokeCards } from './projects/poke-cards';
+import Sidebar from './components/sidebar';
 
 function App() {
     return (
         <div className="App">
             <header></header>
             <main className="App-main">
+                <Sidebar />
                 <SvgWithHover>
                     {hovered => <SvgIcon fill={hovered ? '#ecff41' : 'currentColor'} />}
                 </SvgWithHover>

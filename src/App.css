@@ -11,4 +11,7 @@
     font-size: calc(10px + 2vmin);
     color: rgb(13, 13, 13);
     padding-top: 10vh;
+    width: calc(100% - 18.66666667%);
+    right: 0;
+    position: fixed;
 }
