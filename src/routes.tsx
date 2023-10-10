@@ -1,12 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { StyledLink, Wrapper, NavigationWrapper } from './styles';
+import Subtitle from './components/subtitle';
 
 export function Layout() {
     return (
         <Wrapper>
+            <Subtitle />
             <NavigationWrapper>
                 <nav>
-                    <StyledLink to="/poke-tac-toe">PokéTacToe</StyledLink>
+                    <StyledLink to="/projects/poke-tac-toe/index.html">PokéTacToe</StyledLink>
                     <StyledLink to="/to-any-case">toAnyCase()</StyledLink>
                     <StyledLink to="/poke-cards">Poke Flashcards</StyledLink>
                     <StyledLink to="/nothing-here">Wrong way</StyledLink>

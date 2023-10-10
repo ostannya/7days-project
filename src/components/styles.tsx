@@ -34,3 +34,8 @@ export const StyledLi = styled.li`
 export const StyledH5 = styled.h5`
     font-weight: normal;
 `;
+
+export const Paragraph = styled.p`
+    margin: 16px 20%;
+    font-size: 0.8em;
+`;
