@@ -4,7 +4,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Start a poke tac toe game
+-   [ ] Continue on a poke tac toe game
 
 ## Inspiration
 

@@ -1,5 +1,21 @@
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { StyledLink } from './styles';
+import { Button } from 'antd';
+import { StyledCell, GameContainer, StyledLink } from './styles';
+import { useState } from 'react';
+import Pikachu from '../../assets/pika2.png';
+
+function Cell() {
+    const [value, setValue] = useState<React.ReactNode>(null);
+
+    function handleClick() {
+        setValue(<img src={Pikachu} alt="Pika" />);
+    }
+    return (
+        <StyledCell className="square" onClick={handleClick}>
+            {value}
+        </StyledCell>
+    );
+}
 
 export function PokeTacToe() {
     return (
@@ -7,10 +23,27 @@ export function PokeTacToe() {
             <StyledLink to="/">
                 <ArrowLeftOutlined />
             </StyledLink>
-            <div>
-                <h4>PokéTacToe</h4>
-                <p>Choose your Pokemon and win!</p>
-            </div>
+            <section>
+                <h4>Poké Tac Toe</h4>
+                <GameContainer>
+                    <div className="board-row">
+                        <Cell></Cell>
+                        <Cell></Cell>
+                        <Cell></Cell>
+                    </div>
+                    <div className="board-row">
+                        <Cell></Cell>
+                        <Cell></Cell>
+                        <Cell></Cell>
+                    </div>
+                    <div className="board-row">
+                        <Cell></Cell>
+                        <Cell></Cell>
+                        <Cell></Cell>
+                    </div>
+                </GameContainer>
+                <Button>Restart Game</Button>
+            </section>
         </>
     );
 }

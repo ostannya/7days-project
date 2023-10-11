@@ -8,7 +8,7 @@ export function Layout() {
             <Subtitle />
             <NavigationWrapper>
                 <nav>
-                    <StyledLink to="/projects/poke-tac-toe/index.html">PokéTacToe</StyledLink>
+                    <StyledLink to="/projects/poke-tac-toe/index.html">Poké Tac Toe</StyledLink>
                     <StyledLink to="/to-any-case">toAnyCase()</StyledLink>
                     <StyledLink to="/poke-cards">Poke Flashcards</StyledLink>
                     <StyledLink to="/nothing-here">Wrong way</StyledLink>
