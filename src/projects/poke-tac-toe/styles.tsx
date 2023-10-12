@@ -19,8 +19,18 @@ export const StyledCell = styled.div`
     width: 80px; /* 100px */
     height: 80px; /* 100px */
     box-shadow: 0 0 0 1px #333333;
-    border: 0.5px solid #333333;
+    border: 1px solid #333333;
     cursor: pointer;
     line-height: 80px; /* 100px */
     font-size: 40px;
+`;
+
+export const CharContainer = styled.div`
+    display: inline-block;
+    vertical-align: middle;
+`;
+
+export const StyledImage = styled.img`
+    vertical-align: middle;
+    margin: 0 10px;
 `;
