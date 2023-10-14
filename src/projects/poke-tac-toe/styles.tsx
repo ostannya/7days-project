@@ -28,9 +28,14 @@ export const StyledCell = styled.div`
 export const CharContainer = styled.div`
     display: inline-block;
     vertical-align: middle;
+    font-size: 0.8em;
 `;
 
 export const StyledImage = styled.img`
     vertical-align: middle;
     margin: 0 10px;
+`;
+
+export const StyledWinnerMessage = styled.div`
+    font-size: 0.8em;
 `;

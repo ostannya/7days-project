@@ -1,6 +1,6 @@
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import { StyledLink, CharContainer, StyledImage } from './styles';
+import { StyledLink, CharContainer, StyledImage, StyledWinnerMessage } from './styles';
 import { useState } from 'react';
 import Pikachu from '../../assets/pika2.png';
 import Bulbasaur from '../../assets/bulbasaur.png';
@@ -13,22 +13,10 @@ export function PokeTacToe() {
 
     const pikachu = <StyledImage src={Pikachu} alt="Pika" />;
     const bulbasaur = <StyledImage src={Bulbasaur} alt="Bulbasaur" />;
-
     const winner = calculateWinner(squares);
-    let status;
-    if (winner) {
-        status = <div>Winner: {winner}</div>;
-    } else {
-        status = (
-            <div>
-                Next player:
-                {pikaIsNext ? pikachu : bulbasaur}
-            </div>
-        );
-    }
 
     function handleClick(i: number) {
-        if (squares[i] || calculateWinner(squares)) {
+        if (squares[i] || winner) {
             return;
         }
         const nextSquares = squares.slice();
@@ -53,12 +41,12 @@ export function PokeTacToe() {
             </StyledLink>
             <section>
                 <h4>Poké Tac Toe</h4>
-                <div>Choose your Pokemon!</div>
+                <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
                 <CharContainer>
                     {pikachu} or {bulbasaur}
                 </CharContainer>
                 <Board squares={squares} handleClick={handleClick} />
-                <div>{status}</div>
+                {winner ? <StyledWinnerMessage>{winner}is a winner!</StyledWinnerMessage> : null}
                 <Button onClick={handleRestart}>Restart Game</Button>
             </section>
         </>

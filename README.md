@@ -4,7 +4,8 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Fix winner logic
+-   [ ] Fix layout shift when there is a winner
+-   [ ] Figure out the types
 
 ## Inspiration
 
@@ -16,3 +17,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 ## Running a project
 
 Project runs by `npm start` on [http://localhost:3000](http://localhost:3000).
+
+## Insights
+
+1. Getting the winner in tic tac toe didn't work as expected, because I was trying to check `===` on two objects. Solutions: compare properties; stringify objects and compare strings causes `Converting circular structure to JSON` error - use `JSON.stringify` with replacer function to avoid circular structure error.
