@@ -4,8 +4,8 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Fix layout shift when there is a winner
--   [ ] Figure out the types
+-   [ ] Fix dropdowns
+-   [ ] How do I know which one is selected?
 
 ## Inspiration
 

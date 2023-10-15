@@ -1,6 +1,9 @@
 import React from 'react';
+import { StyledImage } from './styles';
 
-export function calculateWinner(squares: React.ReactNode[]) {
+type SquaresArray = (null | { props: { src: string } })[];
+
+export function calculateWinner(squares: SquaresArray) {
     const lines = [
         [0, 3, 6],
         [1, 4, 7],
@@ -29,3 +32,7 @@ export function calculateWinner(squares: React.ReactNode[]) {
     }
     return null;
 }
+
+export const renderCharImage = (imgPath: string) => {
+    return <StyledImage src={imgPath} />;
+};

@@ -1,54 +1,75 @@
+import { JSXElementConstructor, ReactElement, useState } from 'react';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
-import { StyledLink, CharContainer, StyledImage, StyledWinnerMessage } from './styles';
-import { useState } from 'react';
-import Pikachu from '../../assets/pika2.png';
-import Bulbasaur from '../../assets/bulbasaur.png';
-import { calculateWinner } from './helpers';
+import { Button, Space, Dropdown } from 'antd';
+
+import { StyledLink, CharContainer, WinnerMessage } from './styles';
+import * as ImagePath from './images-import';
+import { calculateWinner, renderCharImage } from './helpers';
 import { Board } from './Board';
+import { itemsPlayerOne as items, itemsPlayerTwo } from './menu-items';
 
 export function PokeTacToe() {
-    const [pikaIsNext, setPikaIsNext] = useState(true);
+    const [playerOneIsNext, setPlayerOneIsNext] = useState(true);
     const [squares, setSquares] = useState(Array(9).fill(null));
 
-    const pikachu = <StyledImage src={Pikachu} alt="Pika" />;
-    const bulbasaur = <StyledImage src={Bulbasaur} alt="Bulbasaur" />;
-    const winner = calculateWinner(squares);
+    // const pikachu = renderCharImage(Pikachu);
+    // const bulbasaur = renderCharImage(Bulbasaur);
+
+    const eevee = renderCharImage(ImagePath.Eevee);
+    const squirtle = renderCharImage(ImagePath.Squirtle);
+
+    const playerOne = eevee;
+    const playerTwo = squirtle;
+
+    const winner:
+        | ({ props: { src: string } } & ReactElement<unknown, string | JSXElementConstructor<any>>)
+        | null = calculateWinner(squares);
 
     function handleClick(i: number) {
         if (squares[i] || winner) {
             return;
         }
         const nextSquares = squares.slice();
-        if (pikaIsNext) {
-            nextSquares[i] = pikachu;
+        if (playerOneIsNext) {
+            nextSquares[i] = playerOne;
         } else {
-            nextSquares[i] = bulbasaur;
+            nextSquares[i] = playerTwo;
         }
         setSquares(nextSquares);
-        setPikaIsNext(!pikaIsNext);
+        setPlayerOneIsNext(!playerOneIsNext);
     }
 
     const handleRestart = () => {
         setSquares(Array(9).fill(null));
-        setPikaIsNext(true);
+        setPlayerOneIsNext(true);
     };
 
     return (
         <>
-            <StyledLink to="/">
-                <ArrowLeftOutlined />
-            </StyledLink>
-            <section>
-                <h4>Poké Tac Toe</h4>
-                <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
-                <CharContainer>
-                    {pikachu} or {bulbasaur}
-                </CharContainer>
-                <Board squares={squares} handleClick={handleClick} />
-                {winner ? <StyledWinnerMessage>{winner}is a winner!</StyledWinnerMessage> : null}
-                <Button onClick={handleRestart}>Restart Game</Button>
-            </section>
+            <Space wrap>
+                <StyledLink to="/">
+                    <ArrowLeftOutlined />
+                </StyledLink>
+                <section>
+                    <h4>Poké Tac Toe</h4>
+                    <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
+
+                    <Dropdown menu={{ items }} placement="bottomLeft">
+                        <Button>Player One</Button>
+                    </Dropdown>
+                    <Dropdown menu={{ items }} placement="bottomLeft">
+                        <Button>Player Two</Button>
+                    </Dropdown>
+                    <br />
+                    <CharContainer>
+                        {playerOne} or {playerTwo}
+                    </CharContainer>
+
+                    <Board squares={squares} handleClick={handleClick} />
+                    <WinnerMessage winner={winner}>{winner}is a winner!</WinnerMessage>
+                    <Button onClick={handleRestart}>Restart Game</Button>
+                </section>
+            </Space>
         </>
     );
 }
