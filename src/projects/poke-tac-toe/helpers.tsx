@@ -33,6 +33,20 @@ export function calculateWinner(squares: SquaresArray) {
     return null;
 }
 
-export const renderCharImage = (imgPath: string) => {
-    return <StyledImage src={imgPath} />;
+export const renderCharImage = (pokemonId: number) => {
+    return (
+        <StyledImage
+            src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonId}.svg`}
+            alt=""
+        />
+    );
 };
+
+export function renderCharLabel(charNumber: number, charName: string) {
+    return (
+        <>
+            {renderCharImage(charNumber)}
+            {charName}
+        </>
+    );
+}

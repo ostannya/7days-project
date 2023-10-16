@@ -4,8 +4,8 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Fix dropdowns
--   [ ] How do I know which one is selected?
+-   [ ] Fix buttons layout
+-   [ ] Use char choice to play
 
 ## Inspiration
 

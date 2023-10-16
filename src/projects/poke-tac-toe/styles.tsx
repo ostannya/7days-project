@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 export const StyledLink = styled(Link)`
     top: 95px;
@@ -25,15 +26,11 @@ export const StyledCell = styled.div`
     font-size: 40px;
 `;
 
-export const CharContainer = styled.div`
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0.8em;
-`;
-
 export const StyledImage = styled.img`
     vertical-align: middle;
     margin: 0 10px;
+    width: 40px;
+    height: 40px;
 `;
 
 interface WinnerMessageProps {
@@ -45,4 +42,8 @@ export const WinnerMessage = styled.div<WinnerMessageProps>`
     font-size: 0.8em;
     margin-bottom: 10px;
     height: 50px;
+`;
+
+export const StyledDropdownButton = styled(Button)`
+    margin: 20px;
 `;

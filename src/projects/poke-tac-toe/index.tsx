@@ -1,12 +1,11 @@
 import { JSXElementConstructor, ReactElement, useState } from 'react';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { Button, Space, Dropdown } from 'antd';
+import { Button, Space } from 'antd';
 
-import { StyledLink, CharContainer, WinnerMessage } from './styles';
-import * as ImagePath from './images-import';
+import { StyledLink, WinnerMessage } from './styles';
 import { calculateWinner, renderCharImage } from './helpers';
 import { Board } from './Board';
-import { itemsPlayerOne as items, itemsPlayerTwo } from './menu-items';
+import { CharacterDropdown, itemsPlayerOne, itemsPlayerTwo } from './Dropdown';
 
 export function PokeTacToe() {
     const [playerOneIsNext, setPlayerOneIsNext] = useState(true);
@@ -15,8 +14,8 @@ export function PokeTacToe() {
     // const pikachu = renderCharImage(Pikachu);
     // const bulbasaur = renderCharImage(Bulbasaur);
 
-    const eevee = renderCharImage(ImagePath.Eevee);
-    const squirtle = renderCharImage(ImagePath.Squirtle);
+    const eevee = renderCharImage(25);
+    const squirtle = renderCharImage(1);
 
     const playerOne = eevee;
     const playerTwo = squirtle;
@@ -54,16 +53,9 @@ export function PokeTacToe() {
                     <h4>Poké Tac Toe</h4>
                     <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
 
-                    <Dropdown menu={{ items }} placement="bottomLeft">
-                        <Button>Player One</Button>
-                    </Dropdown>
-                    <Dropdown menu={{ items }} placement="bottomLeft">
-                        <Button>Player Two</Button>
-                    </Dropdown>
+                    <CharacterDropdown player={'One'} list={itemsPlayerOne} />
+                    <CharacterDropdown player={'Two'} list={itemsPlayerTwo} />
                     <br />
-                    <CharContainer>
-                        {playerOne} or {playerTwo}
-                    </CharContainer>
 
                     <Board squares={squares} handleClick={handleClick} />
                     <WinnerMessage winner={winner}>{winner}is a winner!</WinnerMessage>
