@@ -11,11 +11,8 @@ export function PokeTacToe() {
     const [playerOneIsNext, setPlayerOneIsNext] = useState(true);
     const [squares, setSquares] = useState(Array(9).fill(null));
 
-    // const pikachu = renderCharImage(Pikachu);
-    // const bulbasaur = renderCharImage(Bulbasaur);
-
-    const eevee = renderCharImage(25);
-    const squirtle = renderCharImage(1);
+    const eevee = renderCharImage(25, false);
+    const squirtle = renderCharImage(1, false);
 
     const playerOne = eevee;
     const playerTwo = squirtle;

@@ -33,19 +33,22 @@ export function calculateWinner(squares: SquaresArray) {
     return null;
 }
 
-export const renderCharImage = (pokemonId: number) => {
-    return (
-        <StyledImage
-            src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonId}.svg`}
-            alt=""
-        />
-    );
+const getPokemonImageSrc = (pokemonId: number) => {
+    return `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
+};
+
+export const renderCharImage = (pokemonId: number, isDropdown?: boolean) => {
+    const imageSrc = getPokemonImageSrc(pokemonId);
+
+    return <StyledImage src={imageSrc} alt="" isDropdown={isDropdown} />;
 };
 
 export function renderCharLabel(charNumber: number, charName: string) {
+    const imageElement = renderCharImage(charNumber, true);
+
     return (
         <>
-            {renderCharImage(charNumber)}
+            {imageElement}
             {charName}
         </>
     );
