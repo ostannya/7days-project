@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrapper, PhotoWrapper, StyledUl, StyledLi, Container, StyledH5 } from './styles';
 import Photo from '../assets/IMG_1614.png';
 
-function Sidebar() {
+const Sidebar = () => {
     return (
         <Wrapper>
             <Container>
@@ -28,6 +28,6 @@ function Sidebar() {
             </section>
         </Wrapper>
     );
-}
+};
 
 export default Sidebar;

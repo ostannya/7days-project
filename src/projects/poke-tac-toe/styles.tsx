@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
+import { StyledImageProps, WinnerMessageProps } from './types';
 
 export const StyledLink = styled(Link)`
     top: 95px;
@@ -26,19 +27,12 @@ export const StyledCell = styled.div`
     font-size: 40px;
 `;
 
-type StyledImageProps = {
-    isDropdown?: boolean;
-};
 export const StyledImage = styled.img<StyledImageProps>`
     vertical-align: middle;
     margin: 0 10px;
-    width: ${props => (props.isDropdown ? '25px' : '40px')};
-    height: ${props => (props.isDropdown ? '25px' : '40px')};
+    width: ${props => (props.isdropdown === 'true' ? '25px' : '40px')};
+    height: ${props => (props.isdropdown === 'true' ? '25px' : '40px')};
 `;
-
-type WinnerMessageProps = {
-    winner?: null | { props: { src: string } };
-};
 
 export const WinnerMessage = styled.div<WinnerMessageProps>`
     visibility: ${props => (props.winner ? 'visible' : 'hidden')};

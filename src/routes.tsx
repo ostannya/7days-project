@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { StyledLink, Wrapper, NavigationWrapper } from './styles';
 import Subtitle from './components/subtitle';
 
-export function Layout() {
+export const Layout = () => {
     return (
         <Wrapper>
             <Subtitle />
@@ -23,9 +23,9 @@ export function Layout() {
             </div>
         </Wrapper>
     );
-}
+};
 
-export function NoMatch() {
+export const NoMatch = () => {
     return (
         <div>
             <h4>Page doesn't exist (yet)</h4>
@@ -34,4 +34,4 @@ export function NoMatch() {
             </a>
         </div>
     );
-}
+};

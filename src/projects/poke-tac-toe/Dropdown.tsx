@@ -1,41 +1,25 @@
-import { ButtonProps, Dropdown, Menu } from 'antd';
-import { renderCharLabel } from './helpers';
+import { useState, forwardRef } from 'react';
+import { Dropdown, Menu } from 'antd';
 import { StyledDropdownButton } from './styles';
-import { useState } from 'react';
+import { Item, CustomButtonProps, DropdownButtonProps } from './types';
 
-interface Item {
-    key: string;
-    label: JSX.Element;
-}
+const DropdownButton = forwardRef(({ player, ...props }: CustomButtonProps, ref: any) => {
+    return (
+        <StyledDropdownButton {...props} ref={ref}>
+            {props.children}
+        </StyledDropdownButton>
+    );
+});
 
-interface CustomButtonProps extends ButtonProps {
-    player?: any;
-}
-
-export const itemsPlayerOne: Item[] = [
-    { key: '1', label: renderCharLabel(25, 'Pikachu') },
-    { key: '2', label: renderCharLabel(1, 'Bulbasaur') },
-    { key: '3', label: renderCharLabel(4, 'Charmander') },
-];
-
-export const itemsPlayerTwo: Item[] = [
-    { key: '4', label: renderCharLabel(133, 'Eevee') },
-    { key: '5', label: renderCharLabel(7, 'Squirtle') },
-    { key: '6', label: renderCharLabel(52, 'Meowth') },
-];
-
-const DropdownButton = ({ player, ...props }: CustomButtonProps) => {
-    return <StyledDropdownButton {...props}>{props.children}</StyledDropdownButton>;
-};
-
-export const CharacterDropdown = ({ player, list }: { player: string; list: Item[] }) => {
+export const CharacterDropdown = ({ player, list, updatePlayer }: DropdownButtonProps) => {
     const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
     const handleItemClick = (item: Item) => {
         setSelectedItem(item);
+        updatePlayer(item.key as number);
     };
 
-    function menu(list: Item[]) {
+    const menu = (list: Item[]) => {
         return (
             <Menu>
                 {list.map(item => (
@@ -45,11 +29,11 @@ export const CharacterDropdown = ({ player, list }: { player: string; list: Item
                 ))}
             </Menu>
         );
-    }
+    };
 
     return (
         <Dropdown overlay={menu(list)} placement="bottomLeft">
-            <DropdownButton size={'large'} player={player}>
+            <DropdownButton player={player} size={'large'}>
                 {selectedItem ? selectedItem.label : `Player ${player}`}
             </DropdownButton>
         </Dropdown>

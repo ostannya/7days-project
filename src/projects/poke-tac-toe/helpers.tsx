@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyledImage } from './styles';
+import { Item, SquaresArray } from './types';
 
-type SquaresArray = (null | { props: { src: string } })[];
-
-export function calculateWinner(squares: SquaresArray) {
+export const calculateWinner = (squares: SquaresArray) => {
     const lines = [
         [0, 3, 6],
         [1, 4, 7],
@@ -31,25 +30,43 @@ export function calculateWinner(squares: SquaresArray) {
         }
     }
     return null;
-}
-
-const getPokemonImageSrc = (pokemonId: number) => {
-    return `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
+};
+const getCharacterImageSrc = (characterId: number) => {
+    return `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${characterId}.svg`;
 };
 
-export const renderCharImage = (pokemonId: number, isDropdown?: boolean) => {
-    const imageSrc = getPokemonImageSrc(pokemonId);
+const renderCharacterImage = (characterId: number, isdropdown: string) => {
+    const imageSrc = getCharacterImageSrc(characterId);
 
-    return <StyledImage src={imageSrc} alt="" isDropdown={isDropdown} />;
+    return <StyledImage src={imageSrc} alt="" isdropdown={isdropdown} />;
 };
 
-export function renderCharLabel(charNumber: number, charName: string) {
-    const imageElement = renderCharImage(charNumber, true);
+const renderCharacterLabel = (characterId: number, characterName: string) => {
+    const imageElement = renderCharacterImage(characterId, 'true');
 
     return (
         <>
             {imageElement}
-            {charName}
+            {characterName}
         </>
     );
-}
+};
+
+export const updatePlayer = (
+    setPlayer: React.Dispatch<React.SetStateAction<React.ReactNode>>,
+    selectedItemKey: number,
+) => {
+    setPlayer(renderCharacterLabel(selectedItemKey, 'false'));
+};
+
+export const itemsPlayerOne: Item[] = [
+    { key: 25, label: renderCharacterLabel(25, 'Pikachu') },
+    { key: 1, label: renderCharacterLabel(1, 'Bulbasaur') },
+    { key: 4, label: renderCharacterLabel(4, 'Charmander') },
+];
+
+export const itemsPlayerTwo: Item[] = [
+    { key: 133, label: renderCharacterLabel(133, 'Eevee') },
+    { key: 7, label: renderCharacterLabel(7, 'Squirtle') },
+    { key: 94, label: renderCharacterLabel(94, 'Gengar') },
+];

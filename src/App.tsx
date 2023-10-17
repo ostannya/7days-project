@@ -7,7 +7,7 @@ import { ToAnyCase } from './projects/to-any-case';
 import { PokeCards } from './projects/poke-cards';
 import Sidebar from './components/sidebar';
 
-function App() {
+const App = () => {
     return (
         <div className="App">
             <header></header>
@@ -27,6 +27,6 @@ function App() {
             </main>
         </div>
     );
-}
+};
 
 export default App;
