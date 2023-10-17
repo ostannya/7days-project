@@ -3,7 +3,7 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
 
 import { StyledLink, WinnerMessage } from './styles';
-import { calculateWinner, updatePlayer, itemsPlayerOne, itemsPlayerTwo } from './helpers';
+import { calculateWinner, renderCharacterImage, itemsPlayerOne, itemsPlayerTwo } from './helpers';
 import { Board } from './Board';
 import { CharacterDropdown } from './Dropdown';
 
@@ -15,13 +15,12 @@ export const PokeTacToe = () => {
     const [playerTwo, setPlayerTwo] = useState<ReactNode>(<></>);
 
     const updatePlayerOne = (itemKey: number) => {
-        updatePlayer(setPlayerOne, itemKey);
+        setPlayerOne(renderCharacterImage(itemKey, 'false'));
     };
 
     const updatePlayerTwo = (itemKey: number) => {
-        updatePlayer(setPlayerTwo, itemKey);
+        setPlayerTwo(renderCharacterImage(itemKey, 'false'));
     };
-
     const winner:
         | ({ props: { src: string } } & ReactElement<unknown, string | JSXElementConstructor<any>>)
         | null = calculateWinner(squares);

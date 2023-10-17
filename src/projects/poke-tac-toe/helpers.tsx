@@ -35,7 +35,7 @@ const getCharacterImageSrc = (characterId: number) => {
     return `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${characterId}.svg`;
 };
 
-const renderCharacterImage = (characterId: number, isdropdown: string) => {
+export const renderCharacterImage = (characterId: number, isdropdown: string) => {
     const imageSrc = getCharacterImageSrc(characterId);
 
     return <StyledImage src={imageSrc} alt="" isdropdown={isdropdown} />;
@@ -50,13 +50,6 @@ const renderCharacterLabel = (characterId: number, characterName: string) => {
             {characterName}
         </>
     );
-};
-
-export const updatePlayer = (
-    setPlayer: React.Dispatch<React.SetStateAction<React.ReactNode>>,
-    selectedItemKey: number,
-) => {
-    setPlayer(renderCharacterLabel(selectedItemKey, 'false'));
 };
 
 export const itemsPlayerOne: Item[] = [
