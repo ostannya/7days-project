@@ -1,11 +1,11 @@
 import { JSXElementConstructor, ReactElement, ReactNode, useState } from 'react';
-import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
 
-import { StyledLink, WinnerMessage } from './styles';
-import { calculateWinner, renderCharacterImage, itemsPlayerOne, itemsPlayerTwo } from './helpers';
+import { BackButton } from '../../components/back-button';
 import { Board } from './Board';
 import { CharacterDropdown } from './Dropdown';
+import { WinnerMessage } from './styles';
+import { calculateWinner, renderCharacterImage, itemsPlayerOne, itemsPlayerTwo } from './helpers';
 
 export const PokeTacToe = () => {
     const [playerOneIsNext, setPlayerOneIsNext] = useState(true);
@@ -47,9 +47,7 @@ export const PokeTacToe = () => {
     return (
         <>
             <Space wrap>
-                <StyledLink to="/">
-                    <ArrowLeftOutlined />
-                </StyledLink>
+                <BackButton />
                 <section>
                     <h4>Poké Tac Toe</h4>
                     <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
@@ -65,7 +63,6 @@ export const PokeTacToe = () => {
                         updatePlayer={updatePlayerTwo}
                     />
 
-                    <br />
                     <Board squares={squares} handleClick={handleClick} />
                     <WinnerMessage winner={winner}>{winner}is a winner!</WinnerMessage>
                     <Button onClick={handleRestart}>Restart Game</Button>

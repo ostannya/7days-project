@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import { StyledLink, Wrapper, NavigationWrapper } from './styles';
-import Subtitle from './components/subtitle';
+import Header from './components/header';
 
 export const Layout = () => {
     return (
         <Wrapper>
-            <Subtitle />
+            <Header />
             <NavigationWrapper>
                 <nav>
                     <StyledLink to="/projects/poke-tac-toe/index.html">Poké Tac Toe</StyledLink>
-                    <StyledLink to="/to-any-case">toAnyCase()</StyledLink>
+                    <StyledLink to="/projects/to-any-case/index.html">toAnyCase()</StyledLink>
                     <StyledLink to="/poke-cards">Poke Flashcards</StyledLink>
                     <StyledLink to="/nothing-here">Wrong way</StyledLink>
                 </nav>

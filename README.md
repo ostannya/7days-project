@@ -4,7 +4,9 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Use char choice to play
+-   [ ] Add lower case, Sentence case, UPPER CASE, Title Case, s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶
+-   [ ] Add UTF-8, URL Encoder/Decoder
+-   [ ] Add word, character, line counters, w/ blanks and w/o
 
 ## Inspiration
 

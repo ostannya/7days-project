@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
     width: 16.66666667%;
@@ -38,4 +39,11 @@ export const StyledH5 = styled.h5`
 export const Paragraph = styled.p`
     margin: 16px 20%;
     font-size: 0.8em;
+`;
+
+export const StyledLink = styled(Link)`
+    top: 95px;
+    position: absolute;
+    left: 100px;
+    color: black;
 `;

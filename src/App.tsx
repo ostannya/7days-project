@@ -18,11 +18,11 @@ const App = () => {
                 </SvgWithHover>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route path="to-any-case" element={<ToAnyCase />} />
                         <Route path="poke-cards" element={<PokeCards />} />
                         <Route path="*" element={<NoMatch />} />
                     </Route>
                     <Route path="projects/poke-tac-toe/index.html" element={<PokeTacToe />} />
+                    <Route path="projects/to-any-case/index.html" element={<ToAnyCase />} />
                 </Routes>
             </main>
         </div>

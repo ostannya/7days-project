@@ -1,20 +1,12 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { StyledImageProps, WinnerMessageProps } from './types';
-
-export const StyledLink = styled(Link)`
-    top: 95px;
-    position: absolute;
-    left: 100px;
-    color: black;
-`;
 
 export const GameContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 246px; /* 306px */
-    margin: 50px auto 25px auto;
+    margin: 25px auto 25px auto;
 `;
 
 export const StyledCell = styled.div`
