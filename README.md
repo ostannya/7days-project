@@ -4,9 +4,9 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Add lower case, Sentence case, UPPER CASE, Title Case, s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶
+-   [ ] Add Sentence case, Title Case, s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶
 -   [ ] Add UTF-8, URL Encoder/Decoder
--   [ ] Add word, character, line counters, w/ blanks and w/o
+-   [ ] Set a chosen value from dropdown on a button
 
 ## Inspiration
 
@@ -14,6 +14,8 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 2. 40 projects for beginners https://www.freecodecamp.org/news/javascript-projects-for-beginners/
 3. https://www.florin-pop.com/blog/2019/09/100-days-100-projects/
 4. https://github.com/florinpop17/app-ideas
+5. How many string methods can you remember
+6. Sketch pad
 
 ## Running a project
 
@@ -22,6 +24,7 @@ Project runs by `npm start` on [http://localhost:3000](http://localhost:3000).
 ## Projects
 
 -   Poké Tac Toe: play popular strategy game with Pokémon. Choose from six different characters!
+-   ToAnyCase(): convert your text to any case. No ads, no tracking, no cookies.
 
 ## Insights
 
