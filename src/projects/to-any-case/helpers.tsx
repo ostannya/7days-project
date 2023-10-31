@@ -16,7 +16,7 @@ export const handleCopy = () => {
     }
 };
 
-interface MenuItem {
+export interface MenuItem {
     label: string;
     key: string;
 }
@@ -42,4 +42,11 @@ export const calculateItems = (
     ];
 
     return items;
+};
+
+export const countCharCountWithoutSpaces = (inputValue: string) =>
+    inputValue.replace(/\s+/g, '').length;
+
+export const toSentenceCase = (inputValue: string) => {
+    return inputValue.charAt(0).toUpperCase() + inputValue.slice(1).toLowerCase();
 };

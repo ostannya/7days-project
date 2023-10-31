@@ -4,9 +4,10 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Add Sentence case, Title Case, s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶
+-   [ ] Add Title Case, s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶
 -   [ ] Add UTF-8, URL Encoder/Decoder
 -   [ ] Set a chosen value from dropdown on a button
+-   [ ] Fix count on the button
 
 ## Inspiration
 

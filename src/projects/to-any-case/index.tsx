@@ -1,36 +1,16 @@
 import { useState } from 'react';
-import { Input, Typography, Dropdown } from 'antd';
+import { Input, Typography } from 'antd';
 
 import { BackButton } from '../../components/back-button';
-import {
-    InputContainer,
-    StyledButton as Button,
-    ButtonContainer,
-    DropdownContainer,
-} from './styles';
-import {
-    handleCopy,
-    handleWordCount,
-    ChangeEventHandler,
-    MouseEventHandler,
-    calculateItems,
-} from './helpers';
+import { InputContainer, StyledButton as Button, ButtonContainer } from './styles';
+import { handleCopy, ChangeEventHandler, MouseEventHandler, toSentenceCase } from './helpers';
+import { DropdownWithCount } from './Dropdown';
 
 const { TextArea } = Input;
 const { Title, Text } = Typography;
 
 export const ToAnyCase = () => {
     const [inputValue, setInputValue] = useState('');
-
-    const wordCount = handleWordCount(inputValue);
-    const charCount = inputValue.length;
-    const charCountWithoutSpaces = inputValue.replace(/\s+/g, '').length;
-
-    const items = calculateItems(wordCount, charCount, charCountWithoutSpaces);
-
-    const menuProps = {
-        items,
-    };
 
     const handleInputChange: ChangeEventHandler = event => {
         setInputValue(event.target.value);
@@ -42,6 +22,10 @@ export const ToAnyCase = () => {
 
     const handleToUpperCase: MouseEventHandler = () => {
         setInputValue(inputValue.toUpperCase());
+    };
+
+    const handleToSentenceCase: MouseEventHandler = () => {
+        setInputValue(toSentenceCase(inputValue));
     };
 
     const handleClear: MouseEventHandler = () => {
@@ -67,16 +51,14 @@ export const ToAnyCase = () => {
             <ButtonContainer>
                 <Button onClick={handleClear}>Clear</Button>
                 <Button onClick={handleCopy}>Copy</Button>
-                <DropdownContainer>
-                    <Dropdown.Button menu={menuProps}>Count</Dropdown.Button>
-                </DropdownContainer>
+                <DropdownWithCount {...{ inputValue }} />
             </ButtonContainer>
             <br />
             <br />
             <div>
                 <Button onClick={handleToLowerCase}>lower case</Button>
                 <Button onClick={handleToUpperCase}>UPPER CASE</Button>
-                <Button>Sentence case</Button>
+                <Button onClick={handleToSentenceCase}>Sentence case</Button>
                 <Button>Title case</Button>
                 <Button>URL</Button>
                 <br />
