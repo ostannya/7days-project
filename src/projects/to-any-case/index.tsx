@@ -3,7 +3,15 @@ import { Input, Typography } from 'antd';
 
 import { BackButton } from '../../components/back-button';
 import { InputContainer, StyledButton as Button, ButtonContainer } from './styles';
-import { handleCopy, ChangeEventHandler, MouseEventHandler, toSentenceCase } from './helpers';
+import {
+    handleCopy,
+    ChangeEventHandler,
+    MouseEventHandler,
+    toSentenceCase,
+    toTitleCase,
+    encodeURL,
+    toBinary,
+} from './helpers';
 import { DropdownWithCount } from './Dropdown';
 
 const { TextArea } = Input;
@@ -15,21 +23,24 @@ export const ToAnyCase = () => {
     const handleInputChange: ChangeEventHandler = event => {
         setInputValue(event.target.value);
     };
+    const transformInputText =
+        (transformFn: (str: string) => string): MouseEventHandler =>
+        () => {
+            setInputValue(transformFn(inputValue));
+        };
 
-    const handleToLowerCase: MouseEventHandler = () => {
-        setInputValue(inputValue.toLowerCase());
-    };
-
-    const handleToUpperCase: MouseEventHandler = () => {
-        setInputValue(inputValue.toUpperCase());
-    };
-
-    const handleToSentenceCase: MouseEventHandler = () => {
-        setInputValue(toSentenceCase(inputValue));
-    };
-
+    const inputElement = document.getElementById('input');
     const handleClear: MouseEventHandler = () => {
+        if (inputElement) {
+            inputElement.style.textDecoration = 'none';
+        }
         setInputValue('');
+    };
+
+    const applyStrikethrough = () => {
+        if (inputElement) {
+            inputElement.style.textDecoration = 'line-through';
+        }
     };
 
     return (
@@ -56,15 +67,15 @@ export const ToAnyCase = () => {
             <br />
             <br />
             <div>
-                <Button onClick={handleToLowerCase}>lower case</Button>
-                <Button onClick={handleToUpperCase}>UPPER CASE</Button>
-                <Button onClick={handleToSentenceCase}>Sentence case</Button>
-                <Button>Title case</Button>
-                <Button>URL</Button>
+                <Button onClick={transformInputText(str => str.toLowerCase())}>lower case</Button>
+                <Button onClick={transformInputText(str => str.toUpperCase())}>UPPER CASE</Button>
+                <Button onClick={transformInputText(toSentenceCase)}>Sentence case</Button>
+                <Button onClick={transformInputText(toTitleCase)}>Title Case</Button>
+                <Button onClick={transformInputText(encodeURL)}>URL Encode</Button>
                 <br />
-                <Button>s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶</Button>
+                <Button onClick={applyStrikethrough}>s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶</Button>
                 <Button>UTF8</Button>
-                <Button>Binary code</Button>
+                <Button onClick={transformInputText(toBinary)}>Binary code</Button>
                 <Button>Values only</Button>
             </div>
         </>

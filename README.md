@@ -4,9 +4,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Add Title Case, s̶t̶r̶i̶k̶e̶ ̶t̶h̶r̶o̶u̶g̶h̶
--   [ ] Add UTF-8, URL Encoder/Decoder
--   [ ] Set a chosen value from dropdown on a button
+-   [ ] Add UTF-8
 -   [ ] Fix count on the button
 
 ## Inspiration
@@ -25,7 +23,7 @@ Project runs by `npm start` on [http://localhost:3000](http://localhost:3000).
 ## Projects
 
 -   Poké Tac Toe: play popular strategy game with Pokémon. Choose from six different characters!
--   ToAnyCase(): convert your text to any case. No ads, no tracking, no cookies.
+-   ToAnyCase(): set of tools for daily work with text. No ads, no tracking, no... whatever?
 
 ## Insights
 

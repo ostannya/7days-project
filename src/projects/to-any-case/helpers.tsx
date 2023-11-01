@@ -1,3 +1,5 @@
+import { message } from 'antd';
+
 export type ChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>;
 export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>;
 
@@ -12,6 +14,7 @@ export const handleCopy = () => {
         inputElement.select();
         try {
             document.execCommand('copy');
+            message.info('Copied!');
         } catch (err) {}
     }
 };
@@ -49,4 +52,28 @@ export const countCharCountWithoutSpaces = (inputValue: string) =>
 
 export const toSentenceCase = (inputValue: string) => {
     return inputValue.charAt(0).toUpperCase() + inputValue.slice(1).toLowerCase();
+};
+
+export const toTitleCase = (inputValue: string) => {
+    return inputValue
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
+
+export const encodeURL = (inputValue: string) => {
+    return encodeURIComponent(inputValue);
+};
+
+export const toBinary = (inputValue: string) => {
+    let binaryString = '';
+    for (let i = 0; i < inputValue.length; i++) {
+        let charCode = inputValue.charCodeAt(i).toString(2);
+        while (charCode.length < 8) {
+            charCode = '0' + charCode;
+        }
+        binaryString += charCode + ' ';
+    }
+    return binaryString.trim();
 };
