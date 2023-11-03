@@ -30,17 +30,17 @@ export const ToAnyCase = () => {
         };
 
     const inputElement = document.getElementById('input');
+    const applyStrikethrough = () => {
+        if (inputElement) {
+            inputElement.style.textDecoration = 'line-through';
+        }
+    };
+
     const handleClear: MouseEventHandler = () => {
         if (inputElement) {
             inputElement.style.textDecoration = 'none';
         }
         setInputValue('');
-    };
-
-    const applyStrikethrough = () => {
-        if (inputElement) {
-            inputElement.style.textDecoration = 'line-through';
-        }
     };
 
     return (

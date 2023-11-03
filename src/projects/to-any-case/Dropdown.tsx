@@ -9,33 +9,42 @@ interface DropdownWithCountProps {
 }
 
 export const DropdownWithCount = ({ inputValue }: DropdownWithCountProps) => {
-    const [selectedItem, setSelectedItem] = useState('Count');
-    const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-
-    const wordCount = handleWordCount(inputValue);
-    const charCount = inputValue.length;
-    const charCountWithoutSpaces = countCharCountWithoutSpaces(inputValue);
+    const [dropdownData, setDropdownData] = useState<{ label: string; items: MenuItem[] }>({
+        label: 'Count',
+        items: [],
+    });
 
     useEffect(() => {
-        setMenuItems(calculateItems(wordCount, charCount, charCountWithoutSpaces));
-    }, [wordCount, charCount, charCountWithoutSpaces]);
+        const wordCount = handleWordCount(inputValue);
+        const charCount = inputValue.length;
+        const charCountWithoutSpaces = countCharCountWithoutSpaces(inputValue);
+
+        const items = calculateItems(wordCount, charCount, charCountWithoutSpaces);
+
+        setDropdownData(prevData => ({
+            ...prevData,
+            items,
+        }));
+    }, [inputValue]);
 
     const handleMenuClick = (item: { key: string }) => {
-        const selectedItem = menuItems.find(menuItem => menuItem.key === item.key);
-
+        const selectedItem = dropdownData.items.find(menuItem => menuItem.key === item.key);
         if (selectedItem) {
-            setSelectedItem(selectedItem.label);
+            setDropdownData(prevData => ({
+                ...prevData,
+                label: selectedItem.label,
+            }));
         }
     };
 
     const menuProps: MenuProps = {
-        items: menuItems,
+        items: dropdownData.items,
         onClick: handleMenuClick,
     };
 
     return (
         <DropdownContainer>
-            <Dropdown.Button menu={menuProps}>{selectedItem}</Dropdown.Button>
+            <Dropdown.Button menu={menuProps}>{dropdownData.label}</Dropdown.Button>
         </DropdownContainer>
     );
 };
