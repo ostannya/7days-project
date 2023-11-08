@@ -15,6 +15,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 4. https://github.com/florinpop17/app-ideas
 5. How many string methods can you remember
 6. Sketch pad
+7. Log in to something
 
 ## Running a project
 
@@ -32,3 +33,4 @@ Project runs by `npm start` on [http://localhost:3000](http://localhost:3000).
 ## Bugs
 
 1. Poké Tac Toe: when you click on the board with no char chosen, a cell is visually empty but marked as occupied.
+2. toAnyCase(): when you click on the Count button, the counter doesn't increment/decrement when the input value changes. It only changes in dropdown menu.

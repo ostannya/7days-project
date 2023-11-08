@@ -5,6 +5,7 @@ import './App.css';
 import { PokeTacToe } from './projects/poke-tac-toe';
 import { ToAnyCase } from './projects/to-any-case';
 import { PokeCards } from './projects/poke-cards';
+import { GrowingDot } from './projects/growing-dot';
 import Sidebar from './components/sidebar';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                     </Route>
                     <Route path="projects/poke-tac-toe/index.html" element={<PokeTacToe />} />
                     <Route path="projects/to-any-case/index.html" element={<ToAnyCase />} />
+                    <Route path="projects/growing-dot/index.html" element={<GrowingDot />} />
                 </Routes>
             </main>
         </div>

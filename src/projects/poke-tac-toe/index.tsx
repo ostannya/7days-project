@@ -2,6 +2,7 @@ import { JSXElementConstructor, ReactElement, ReactNode, useState } from 'react'
 import { Button, Space } from 'antd';
 
 import { BackButton } from '../../components/back-button';
+import { Title } from '../../components/export';
 import { Board } from './Board';
 import { CharacterDropdown } from './Dropdown';
 import { WinnerMessage } from './styles';
@@ -49,7 +50,7 @@ export const PokeTacToe = () => {
             <Space wrap>
                 <BackButton />
                 <section>
-                    <h4>Poké Tac Toe</h4>
+                    <Title>Poké Tac Toe</Title>
                     <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
 
                     <CharacterDropdown

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Input, Typography } from 'antd';
 
 import { BackButton } from '../../components/back-button';
+import { TextArea, Title, Text } from '../../components/export';
 import { InputContainer, StyledButton as Button, ButtonContainer } from './styles';
 import {
     handleCopy,
@@ -13,9 +13,6 @@ import {
     toBinary,
 } from './helpers';
 import { DropdownWithCount } from './Dropdown';
-
-const { TextArea } = Input;
-const { Title, Text } = Typography;
 
 export const ToAnyCase = () => {
     const [inputValue, setInputValue] = useState('');
