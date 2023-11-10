@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useScrollDirection } from 'react-use-scroll-direction';
 import './index.css';
 
@@ -8,19 +9,50 @@ import { DotContainer, Dot } from './styles';
 export const GrowingDot = () => {
     const { isScrollingDown } = useScrollDirection();
     console.log('isScrollingDown', isScrollingDown);
+    const [scale, setScale] = useState(1);
+    const [lastScrollTop, setLastScrollTop] = useState(0);
+
+    const scaleIncrement = 0.05;
+    const scrollThreshold = 5;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            if (isScrollingDown && currentScrollTop > lastScrollTop + scrollThreshold) {
+                setScale(prevScale => Math.min(prevScale + scaleIncrement, 1));
+                setLastScrollTop(currentScrollTop);
+            } else if (!isScrollingDown && currentScrollTop < lastScrollTop - scrollThreshold) {
+                setScale(prevScale => Math.max(prevScale - scaleIncrement, 100));
+                setLastScrollTop(currentScrollTop);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isScrollingDown, lastScrollTop]);
+
     return (
         <>
             <BackButton />
             <Title level={3}>Growing Dot</Title>
-            <p>Try to scroll down</p>
+            <p>Try to scroll up and down</p>
             <DotContainer>
                 <Dot
                     id="black-dot"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16pt"
                     height="16.000099pt"
+                    style={{ transform: `scale(${scale})`, transition: 'transform 1s ease' }}
                 >
+                    {/* <defs>
+                        <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="50%" style={{ stopColor: '#000', stopOpacity: 1 }} />
+                            <stop offset="100%" style={{ stopColor: '#000', stopOpacity: 0.5 }} />
+                        </radialGradient>
+                    </defs> */}
                     <path
+                        //  fill="url(#grad1)"
                         stroke="#000"
                         strokeMiterlimit="40"
                         strokeWidth="1.25"
