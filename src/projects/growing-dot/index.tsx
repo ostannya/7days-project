@@ -3,12 +3,11 @@ import { useScrollDirection } from 'react-use-scroll-direction';
 import './index.css';
 
 import { BackButton } from '../../components/back-button';
-import { Title } from '../../components/export';
+import { Title, Text } from '../../components/export';
 import { DotContainer, Dot } from './styles';
 
 export const GrowingDot = () => {
     const { isScrollingDown } = useScrollDirection();
-    console.log('isScrollingDown', isScrollingDown);
     const [scale, setScale] = useState(1);
     const [lastScrollTop, setLastScrollTop] = useState(0);
 
@@ -36,7 +35,7 @@ export const GrowingDot = () => {
         <>
             <BackButton />
             <Title level={3}>Growing Dot</Title>
-            <p>Try to scroll up and down</p>
+            <Text style={{ fontSize: '0.8em' }}>Try to scroll up and down</Text>
             <DotContainer>
                 <Dot
                     id="black-dot"

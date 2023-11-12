@@ -11,7 +11,8 @@ export const Layout = () => {
                     <StyledLink to="/projects/poke-tac-toe/index.html">Poké Tac Toe</StyledLink>
                     <StyledLink to="/projects/to-any-case/index.html">toAnyCase()</StyledLink>
                     <StyledLink to="/projects/growing-dot/index.html">Growing Dot</StyledLink>
-                    <StyledLink to="/poke-cards">Poke Flashcards</StyledLink>
+                    <StyledLink to="/projects/log-in/index.html">Log into Nothing</StyledLink>
+                    {/* <StyledLink to="/poke-cards">Poke Flashcards</StyledLink> */}
                     <StyledLink to="/nothing-here">Wrong way</StyledLink>
                 </nav>
             </NavigationWrapper>

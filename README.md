@@ -4,8 +4,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ] Add UTF-8
--   [ ] Fix count on the button
+-   [ ]
 
 ## Inspiration
 
@@ -16,6 +15,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 5. How many string methods can you remember
 6. Sketch pad
 7. Log in to something
+8. https://www.upgrad.com/blog/sql-project-ideas-topics-for-beginners/
 
 ## Running a project
 
@@ -34,3 +34,4 @@ Project runs by `npm start` on [http://localhost:3000](http://localhost:3000).
 
 1. Poké Tac Toe: when you click on the board with no char chosen, a cell is visually empty but marked as occupied.
 2. toAnyCase(): when you click on the Count button, the counter doesn't increment/decrement when the input value changes. It only changes in dropdown menu.
+3. The scroll for the Dot is introduced on all pages instead of one. Solutions: fix this or expand dot on mouse click.

@@ -50,7 +50,7 @@ export const PokeTacToe = () => {
             <Space wrap>
                 <BackButton />
                 <section>
-                    <Title>Poké Tac Toe</Title>
+                    <Title level={3}>Poké Tac Toe</Title>
                     <div style={{ fontSize: '0.8em' }}>Choose your Pokemon!</div>
 
                     <CharacterDropdown

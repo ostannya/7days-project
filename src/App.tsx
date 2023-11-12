@@ -7,6 +7,7 @@ import { ToAnyCase } from './projects/to-any-case';
 import { PokeCards } from './projects/poke-cards';
 import { GrowingDot } from './projects/growing-dot';
 import Sidebar from './components/sidebar';
+import { LogIn } from './projects/log-in/register';
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                     <Route path="projects/poke-tac-toe/index.html" element={<PokeTacToe />} />
                     <Route path="projects/to-any-case/index.html" element={<ToAnyCase />} />
                     <Route path="projects/growing-dot/index.html" element={<GrowingDot />} />
+                    <Route path="projects/log-in/index.html" element={<LogIn />} />
                 </Routes>
             </main>
         </div>
