@@ -4,8 +4,10 @@ import { Button, Form, Input } from 'antd';
 import { BackButton } from '../../components/back-button';
 import { Title, Text } from '../../components/export';
 import { FormContainer } from './styles';
+import { createUser } from './firebase';
 
-const onFinish = (values: any) => {
+const onFinish = (values: FieldType) => {
+    createUser(values);
     console.log('Success:', values);
 };
 
@@ -13,9 +15,9 @@ const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
 };
 
-type FieldType = {
-    username?: string;
-    password?: string;
+export type FieldType = {
+    email: string;
+    password: string;
 };
 
 export const LogIn: React.FC = () => {
@@ -36,9 +38,9 @@ export const LogIn: React.FC = () => {
                     autoComplete="off"
                 >
                     <Form.Item<FieldType>
-                        label="Username"
-                        name="username"
-                        rules={[{ required: true, message: 'Please enter your username!' }]}
+                        label="Email"
+                        name="email"
+                        rules={[{ required: true, message: 'Please enter your email!' }]}
                     >
                         <Input />
                     </Form.Item>

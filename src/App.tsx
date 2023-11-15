@@ -7,7 +7,7 @@ import { ToAnyCase } from './projects/to-any-case';
 import { PokeCards } from './projects/poke-cards';
 import { GrowingDot } from './projects/growing-dot';
 import Sidebar from './components/sidebar';
-import { LogIn } from './projects/log-in/register';
+import { LogIn } from './projects/log-in';
 
 const App = () => {
     return (

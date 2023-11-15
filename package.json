@@ -11,6 +11,7 @@
         "@types/react": "^18.2.24",
         "@types/react-dom": "^18.2.10",
         "antd": "^5.10.0",
+        "firebase": "^10.6.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.16.0",
@@ -43,5 +44,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@firebase/app": "^0.9.23",
+        "@firebase/auth": "^1.4.0"
     }
 }
