@@ -4,7 +4,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 
 ## TODO
 
--   [ ]
+-   [ ] Add fields validation
 
 ## Inspiration
 
@@ -14,8 +14,7 @@ A repo for the projects I write in 7 days. Created with `create-react-app` and `
 4. https://github.com/florinpop17/app-ideas
 5. How many string methods can you remember
 6. Sketch pad
-7. Log in to something
-8. https://www.upgrad.com/blog/sql-project-ideas-topics-for-beginners/
+7. https://www.upgrad.com/blog/sql-project-ideas-topics-for-beginners/
 
 ## Running a project
 
@@ -25,6 +24,8 @@ Project runs by `npm start` on [http://localhost:3000](http://localhost:3000).
 
 -   Poké Tac Toe: play popular strategy game with Pokémon. Choose from six different characters!
 -   ToAnyCase(): set of tools for daily work with text. No ads, no tracking, no... whatever?
+-   Growing dot: a small dot scales on vertical scroll.
+-   Log into nothing: a simple login form with validation, build with Firebase.
 
 ## Insights
 

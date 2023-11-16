@@ -4,12 +4,7 @@ import { Button, Form, Input } from 'antd';
 import { BackButton } from '../../components/back-button';
 import { Title, Text } from '../../components/export';
 import { FormContainer } from './styles';
-import { createUser } from './firebase';
-
-const onFinish = (values: FieldType) => {
-    createUser(values);
-    console.log('Success:', values);
-};
+import { signInUser } from './firebase';
 
 const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -21,6 +16,12 @@ export type FieldType = {
 };
 
 export const LogIn: React.FC = () => {
+    const onFinish = (values: FieldType) => {
+        signInUser(values);
+        console.log('Success:', values);
+        window.location.href = '/projects/log-in/success.html';
+    };
+
     return (
         <>
             <BackButton />

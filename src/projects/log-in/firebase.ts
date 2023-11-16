@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { FieldType } from './index';
 
 const firebaseConfig = {
@@ -21,7 +21,7 @@ const analytics = getAnalytics(app);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-export const createUser = (fields: FieldType) => {
+const createUser = (fields: FieldType) => {
     const { email, password } = fields;
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential: { user: any }) => {
@@ -29,9 +29,32 @@ export const createUser = (fields: FieldType) => {
             const user = userCredential.user;
             // ...
         })
-        .catch((error: { code: any; message: any }) => {
+        .catch((error: { code: string; message: string }) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             // ..
         });
+};
+
+export const signInUser = async (fields: FieldType) => {
+    const { email, password } = fields;
+
+    try {
+        // Attempt to sign in the user
+        await signInWithEmailAndPassword(auth, email, password);
+        console.log('User signed in');
+        // ...
+    } catch (error: any) {
+        // If sign-in fails, handle the error
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        // If the error code indicates that the user doesn't exist, create a new account
+        if (errorCode === 'auth/invalid-login-credentials') {
+            createUser(fields);
+            console.log('User created');
+        } else {
+            console.log(errorMessage);
+        }
+    }
 };
