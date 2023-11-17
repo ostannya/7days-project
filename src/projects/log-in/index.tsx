@@ -19,7 +19,7 @@ export const LogIn: React.FC = () => {
     const onFinish = (values: FieldType) => {
         signInUser(values);
         console.log('Success:', values);
-        window.location.href = '/projects/log-in/success.html';
+        //  window.location.href = '/projects/log-in/success.html';
     };
 
     return (
