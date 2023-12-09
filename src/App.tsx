@@ -9,6 +9,7 @@ import { GrowingDot } from './projects/growing-dot';
 import Sidebar from './components/sidebar';
 import { LogIn } from './projects/log-in';
 import { Success } from './projects/log-in/success';
+import { Autocomplete } from './projects/autocomplete-this';
 
 const App = () => {
     return (
@@ -29,6 +30,10 @@ const App = () => {
                     <Route path="projects/growing-dot/index.html" element={<GrowingDot />} />
                     <Route path="projects/log-in/index.html" element={<LogIn />} />
                     <Route path="projects/log-in/success.html" element={<Success />} />
+                    <Route
+                        path="projects/autocomplete-this/index.html"
+                        element={<Autocomplete />}
+                    />
                 </Routes>
             </main>
         </div>
